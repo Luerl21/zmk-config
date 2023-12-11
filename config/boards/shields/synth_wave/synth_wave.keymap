@@ -43,7 +43,7 @@
                 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                       &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
                 &bt BT_CLR &kp K_SLEEP &kp K_PWR &trans &trans &trans           &rgb_ug RGB_TOG &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_SPI
                 &bt BT_PRV &bt BT_NXT &trans &trans &trans &trans               &trans &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD
-                                            &trans &mo 2 &trans &trans     &bootloader &trans &trans &trans
+                                        &bootloader  &trans &trans &trans     &bootloader &trans &trans &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
