@@ -11,6 +11,19 @@ config ZMK_KEYBOARD_NAME
 
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
+	
+	if ZMK_DISPLAY
+
+	config I2C
+	default y
+
+	config SSD1306
+	default y
+
+	config SSD1306_REVERSE_MODE
+	default y
+
+	endif # ZMK_DISPLAY
 
 endif
 
@@ -20,16 +33,3 @@ config ZMK_SPLIT
 	default y
 
 endif
-
-if ZMK_DISPLAY
-
-config I2C
-  default y
-
-config SSD1306
-  default y
-
-config SSD1306_REVERSE_MODE
-  default y
-
-endif # ZMK_DISPLAY
