@@ -5,8 +5,11 @@ type: shield
 url: https://github.com/luerl21/synth_wave
 requires:
   - nice_nano_v2
+exposes: 
+  - i2c_oled
 features:
-    - keys
+  - display
+  - keys
   - encoder
 siblings:
     - synth_wave_left
