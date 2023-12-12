@@ -42,6 +42,7 @@
 
 / {
 	chosen {
+        zephyr,display = &oled;
 		zmk,underglow = &led_strip;
 	};
 };
