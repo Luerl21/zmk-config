@@ -1,9 +1,6 @@
 # Copyright (c) 2023 ZMK
 # SPDX-License-Identifier: MIT
 
-config ZMK_USB_LOGGING
-	default y
-
 if SHIELD_SYNTH_WAVE_LEFT
 
 config ZMK_KEYBOARD_NAME
