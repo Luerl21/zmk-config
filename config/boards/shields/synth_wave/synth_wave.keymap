@@ -12,6 +12,7 @@
 
 / {
 
+    behaviors {
         sensors: sensors {
             compatible = "zmk,keymap-sensors";
             sensors = <&left_encoder &right_encoder>;
@@ -22,11 +23,12 @@
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
         };
-        bt_encoder: rgb_encoder {
+        bt_encoder: bt_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug BT_NXT>, <&rgb_ug BT_PRV>;
         };
+    };
     
     keymap {
         compatible = "zmk,keymap";
