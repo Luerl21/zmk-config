@@ -12,7 +12,6 @@
 
 / {
 
-    behaviors {
         sensors: sensors {
             compatible = "zmk,keymap-sensors";
             sensors = <&left_encoder &right_encoder>;
@@ -28,7 +27,6 @@
             #sensor-binding-cells = <0>;
             bindings = <&rgb_ug BT_NXT>, <&rgb_ug BT_PRV>;
         };
-    };
     
     keymap {
         compatible = "zmk,keymap";
@@ -57,7 +55,7 @@
                 &bt BT_PRV &bt BT_NXT &trans &trans &trans &trans               &trans &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD
                                         &bootloader  &trans &trans &trans     &bootloader &trans &trans &trans
             >;
-            sensor-bindings = <&bt_encoder  &rgb_encoder>;
+            sensor-bindings = <&bt_encoder &rgb_encoder>;
         };
         game_layer {
             bindings = <
