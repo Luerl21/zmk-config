@@ -21,12 +21,12 @@
         };
         rgb_encoder: rgb_encoder {
             compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
+            #sensor-binding-cells = <2>;
             bindings = <&rgb_ug>, <&rgb_ug>;
         };
         bt_encoder: bt_encoder {
             compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
+            #sensor-binding-cells = <2>;
             bindings = <&bt>, <&bt>;
         };
     };
