@@ -47,7 +47,7 @@
                 &bt BT_PRV &bt BT_NXT &trans &trans &trans &trans               &trans &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD
                                         &bootloader  &trans &trans &trans     &bootloader &trans &trans &trans
             >;
-            sensor-bindings = <&bt BT_PRV BT_PRV  &rgb_ug RGB_EFF RGB_EFR>;
+            sensor-bindings = <&bt BT_NXT BT_PRV  &rgb_ug RGB_EFF RGB_EFR>;
         };
         game_layer {
             bindings = <
