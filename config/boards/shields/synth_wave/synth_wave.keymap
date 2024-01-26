@@ -22,12 +22,12 @@
         rgb_encoder: rgb_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
+            bindings = <&rgb_ug>, <&rgb_ug>;
         };
         bt_encoder: bt_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&rgb_ug BT_NXT>, <&rgb_ug BT_PRV>;
+            bindings = <&bt>, <&bt>;
         };
     };
     
@@ -58,7 +58,7 @@
                 &bt BT_PRV &bt BT_NXT &trans &trans &trans &trans               &trans &rgb_ug RGB_EFR &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD
                                         &bootloader  &trans &trans &trans     &bootloader &trans &trans &trans
             >;
-            sensor-bindings = <&bt_encoder &rgb_encoder>;
+            sensor-bindings = <&bt_encoder BT_PRV BT_NXT &rgb_encoder RGB_EFR RGB_EFF>;
         };
         game_layer {
             bindings = <
