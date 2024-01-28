@@ -13,11 +13,24 @@
 };
 
 / {
-    sensors: sensors {
+    behaviors {
+        sensors: sensors {
             compatible = "zmk,keymap-sensors";
             sensors = <&left_encoder &right_encoder>;
             triggers-per-rotation = <20>;
         };
+        rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_EFR>;
+        };
+        bt_encoder: bt_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&bt BT_NXT>, <&bt BT_PRV>;
+        };
+    };
+    
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
