@@ -58,7 +58,7 @@
         compatible = "zmk,gpio-key-behavior-trigger";
         bindings = <&hw_soft_off>;
         key = <&wakeup_key>;
-	}
+	};
     
     chosen {
         zmk,kscan = &kscan0;
