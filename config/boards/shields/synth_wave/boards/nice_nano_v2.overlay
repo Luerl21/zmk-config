@@ -45,6 +45,44 @@
         zephyr,display = &oled;
 		zmk,underglow = &led_strip;
 	};
+	behaviors {
+		 soft_off: soft_off {
+            compatible = "zmk,behavior-soft-off";
+            #binding-cells = <0>;
+            status = "okay";
+        };
+    };
+
+    wakeup_source: wakeup_source {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        status = "okay";
+
+        trigger = <&button0>;
+        wakeup-source;
+    };
+
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        status = "okay";
+
+        wakeup-sources = <&wakeup_source>;
+    };
+
+    soft_off_direct_kscan: soft_off_direct_kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        input-keys = <&button0>;
+    };
+
+    soft_off_sideband_behaviors {
+        compatible = "zmk,kscan-sideband-behaviors";
+        kscan = <&soft_off_direct_kscan>;
+        soft_off {
+            row = <0>;
+            column = <0>;
+            bindings = <&soft_off>;
+        };
+    };
+	}
 };
 
 &pro_micro_i2c {
