@@ -68,8 +68,6 @@
         /delete-property/ zephyr,shell-uart;
 
         zephyr,console = &cdc_acm_uart;
-
-        zmk,soft-off-wakeup-source = &wake_trigger;
     };
 
     default_transform: keymap_transform_0 {
