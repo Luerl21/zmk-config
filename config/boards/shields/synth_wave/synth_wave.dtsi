@@ -49,7 +49,7 @@
             wakeup-source;
             trigger = <&button_wake_sleep>;
             extra-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
-    }
+    };
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
