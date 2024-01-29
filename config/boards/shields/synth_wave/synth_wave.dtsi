@@ -21,6 +21,35 @@
             sensors = <&left_encoder &right_encoder>;
             triggers-per-rotation = <20>;
         };
+        
+        soft_off: behavior_soft_off {
+            compatible = "zmk,behavior-soft-off";
+            #binding-cells = <0>;
+            label = "SOFT_OFF";
+            status = "okay";
+        };
+    };
+        wakeup_source: wakeup_source {
+            compatible = "zmk,wakeup-trigger-key";
+            status = "okay";
+
+            trigger = <&button0>;
+            wakeup-source;
+        };
+
+        soft_off_wakers {
+            compatible = "zmk,soft-off-wakeup-sources";
+            status = "okay";
+
+            wakeup-sources = <&wakeup_source>;
+        };
+
+        soft_off_behavior_key {
+            compatible = "zmk,behavior-key";
+            status = "okay";
+            bindings = <&soft_off>;
+            key = <&button0>;
+        };
         rgb_encoder: rgb_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
