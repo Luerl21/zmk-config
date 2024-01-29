@@ -17,21 +17,12 @@
 
 / {
     keys {
-        compatible = "gpio-keys";
-        wakeup_key: wakeup_key {
-            gpios = <&pro_micro 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        };
-    };
-    wakeup_source: wakeup_source {
-        compatible = "zmk,gpio-key-wakeup-trigger";
-
-        trigger = <&wakeup_key>;
-        wakeup-source;
-    };
-     soft_off_wakers {
-        compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&wakeup_source>;
-    };
+		compatible = "gpio-keys";
+		wakeup_key: wakeup_key {
+			gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		};
+	};
+    
     behaviors {
         sensors: sensors {
             compatible = "zmk,keymap-sensors";
@@ -49,15 +40,36 @@
             bindings = <&bt BT_NXT>, <&bt BT_PRV>;
         };
 		hw_soft_off: hw_soft_off {
-            compatible = "zmk,behavior-soft-off";
-            #binding-cells = <0>;
-            hold-time-ms = <5000>;
-        };
+			compatible = "zmk,behavior-soft-off";
+			#binding-cells = <0>;
+		};
     };
-    soft_off_behavior_key {
-        compatible = "zmk,gpio-key-behavior-trigger";
-        bindings = <&hw_soft_off>;
-        key = <&wakeup_key>;
+
+    soft_off_direct_scan: soft_off_direct_scan {
+		compatible = "zmk,kscan-gpio-direct";
+		input-keys = <&wakeup_key>;
+	};
+
+	wakeup_source: wakeup_source {
+		compatible = "zmk,gpio-key-wakeup-trigger";
+		
+		trigger = <&wakeup_key>;
+		wakeup-source;
+	};
+
+        soft_off_wakers {
+		compatible = "zmk,soft-off-wakeup-sources";
+		wakeup-sources = <&wakeup_source>;
+	};
+    side_band_behavior_triggers: side_band_behavior_triggers {
+		compatible = "zmk,kscan-sideband-behaviors";
+		wakeup-source;
+		kscan = <&soft_off_direct_scan>;
+		soft_off {
+			column = <0>;
+			row = <0>;
+			bindings = <&hw_soft_off>;
+		};
 	};
     
     chosen {
