@@ -46,7 +46,7 @@
     };
 
     soft_off_direct_scan: soft_off_direct_scan {
-		compatible = "zmk,kscan-gpio-direct";
+		compatible = "zmk,kscan-gpio-charlieplex";
 		input-keys = <&wakeup_key>;
 	};
 
