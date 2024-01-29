@@ -60,7 +60,6 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-charlieplex";
-        wakeup-source;
     };
 
     left_encoder: encoder_left {
