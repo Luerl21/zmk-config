@@ -2,8 +2,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: Luerl21
-      url-base: https://github.com/Luerl21
     - name: petejohanson
       url-base: https://github.com/petejohanson
   projects:
