@@ -1,13 +1,13 @@
 # Consumption
 ## Main
-| with display      | sleep with display | sleep  | deep sleep |
-| :----------------:| :----------------: | :----: | :--------: |
-|        7 mA       |         3.68 mA    | 3.6 mA |   0.7 mA   |
+| with display      | sleep with display | sleep - without display  | deep sleep |
+| :----------------:| :----------------: | :----------------------: | :--------: |
+|        7 mA       |         3.68 mA    |           3.6 mA         |   0.7 mA   |
 
 ## Peripheral
-| with display      | sleep with display | sleep  | deep sleep |
-| :----------------:| :----------------: | :----: | :--------: |
-|        9 mA       |         5.5 mA     | 3.8 mA |   0.7 mA   |
+| with display      | sleep with display | sleep - without display | deep sleep |
+| :----------------:| :----------------: | :---------------------: | :--------: |
+|        9 mA       |         5.5 mA     |           3.8 mA         |   0.7 mA   |
 
 # Keymap
 ![keymap](https://github.com/Luerl21/zmk-config/blob/master/my_keymap.png)
