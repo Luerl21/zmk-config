@@ -5,6 +5,8 @@
         "*.rh": "c",
         "bongo_cat.h": "c",
         "xlocale": "c",
-        "xlocmon": "c"
+        "xlocmon": "c",
+        "ios": "c",
+        "xiosbase": "c"
     }
 }
