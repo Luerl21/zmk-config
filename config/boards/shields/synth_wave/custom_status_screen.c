@@ -84,12 +84,12 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(zmk_widget_bongo_cat_obj(&bongo_cat_widget), LV_ALIGN_BOTTOM_RIGHT, 0, 0);
 #endif
 
-// #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_LABEL)
-//     lv_obj_t *label;
-//     label = lv_label_create(screen);
-//     lv_obj_set_style_text_font(label, lv_theme_get_font_small(screen), LV_PART_MAIN);
-//     lv_label_set_text(label, CONFIG_CUSTOM_WIDGET_LABEL_TEXT);
-//     lv_obj_align(label, LV_ALIGN_TOP_LEFT, 0, 0);
-// #endif
+#if IS_ENABLED(CONFIG_CUSTOM_WIDGET_LABEL)
+    lv_obj_t *label;
+    label = lv_label_create(screen);
+    lv_obj_set_style_text_font(label, lv_theme_get_font_small(screen), LV_PART_MAIN);
+    lv_label_set_text(label, CONFIG_CUSTOM_WIDGET_LABEL_TEXT);
+    lv_obj_align(label, LV_ALIGN_TOP_LEFT, 0, 0);
+#endif
     return screen;
 }
