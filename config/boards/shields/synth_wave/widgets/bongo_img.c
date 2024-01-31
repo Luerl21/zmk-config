@@ -17,6 +17,16 @@
 #define LV_ATTRIBUTE_MEM_ALIGN
 #endif
 
+const lv_img_dsc_t first = {
+    .header.cf = LV_IMG_CF_INDEXED_1BIT,
+    .header.always_zero = 0,
+    .header.reserved = 0,
+    .header.w = 60,
+    .header.h = 31,
+    .data_size = 256,
+    .data = first_map,
+};
+
 #ifndef LV_ATTRIBUTE_IMG_FIRST
 #define LV_ATTRIBUTE_IMG_FIRST
 #endif
@@ -33,18 +43,17 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_FIRST uin
     0x00, 0x41, 0x82, 0x00, 0x00, 0x20, 0x04, 0x00, 0x00, 0x30, 0x0c, 0x00, 0x0f, 0x98, 0x19, 0xf0, 
     0x30, 0x67, 0xe6, 0x0c, 0x60, 0x30, 0x0c, 0x06, 0x40, 0x10, 0x08, 0x02, 0x94, 0x48, 0x11, 0x11, 
     0x94, 0x48, 0x11, 0x11, 0x92, 0x88, 0x10, 0xa1, 0x92, 0x88, 0x10, 0xa1, 0x91, 0x08, 0x10, 0x41, 
-    0x40, 0x10, 0x08, 0x02, 0x60, 0x30, 0x0c, 0x06, 0x30, 0x60, 0x06, 0x0c, 0x0f, 0x80, 0x01, 0xf0, 
+    0x40, 0x10, 0x08, 0x02, 0x60, 0x30, 0x0c, 0x06, 0x30, 0x60, 0x06, 0x0c, 0x0f, 0x80, 0x01, 0xf0,
 };
 
-
-const lv_img_dsc_t first = {
+const lv_img_dsc_t second = {
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .header.always_zero = 0,
     .header.reserved = 0,
     .header.w = 60,
     .header.h = 31,
     .data_size = 256,
-    .data = first_map,
+    .data = second_map,
 };
 
 #ifndef LV_ATTRIBUTE_IMG_SECOND
@@ -66,14 +75,14 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_SECOND ui
     0x40, 0x10, 0x08, 0x02, 0x60, 0x30, 0x0c, 0x06, 0x30, 0x60, 0x06, 0x0c, 0x0f, 0x80, 0x01, 0xf0
 };
 
-const lv_img_dsc_t second = {
+const lv_img_dsc_t third = {
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .header.always_zero = 0,
     .header.reserved = 0,
     .header.w = 60,
     .header.h = 31,
     .data_size = 256,
-    .data = second_map,
+    .data = third_map,
 };
 
 #ifndef LV_ATTRIBUTE_IMG_THIRD
@@ -95,14 +104,14 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_THIRD uin
     0x40, 0x10, 0x08, 0x02, 0x60, 0x30, 0x0c, 0x06, 0x30, 0x60, 0x06, 0x0c, 0x0f, 0x80, 0x01, 0xf0
 };
 
-const lv_img_dsc_t third = {
+const lv_img_dsc_t fourth = {
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .header.always_zero = 0,
     .header.reserved = 0,
     .header.w = 60,
     .header.h = 31,
     .data_size = 256,
-    .data = third_map,
+    .data = fourth_map,
 };
 
 #ifndef LV_ATTRIBUTE_IMG_FOURTH
@@ -124,14 +133,14 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_FOURTH ui
     0x40, 0x10, 0x08, 0x02, 0x60, 0x30, 0x0c, 0x06, 0x30, 0x60, 0x06, 0x0c, 0x0f, 0x80, 0x01, 0xf0
 };
 
-const lv_img_dsc_t fourth = {
+const lv_img_dsc_t fifth = {
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .header.always_zero = 0,
     .header.reserved = 0,
     .header.w = 60,
     .header.h = 31,
     .data_size = 256,
-    .data = fourth_map,
+    .data = fifth_map,
 };
 
 #ifndef LV_ATTRIBUTE_IMG_FIFTH
@@ -153,12 +162,12 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_FIFTH uin
     0x40, 0x10, 0x08, 0x02, 0x60, 0x30, 0x0c, 0x06, 0x30, 0x60, 0x06, 0x0c, 0x0f, 0x80, 0x01, 0xf0
 };
 
-const lv_img_dsc_t fifth = {
+const lv_img_dsc_t both = {
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .header.always_zero = 0,
     .header.reserved = 0,
     .header.w = 60,
     .header.h = 31,
     .data_size = 256,
-    .data = fifth_map,
+    .data = both_map,
 };
