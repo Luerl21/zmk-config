@@ -1,12 +1,12 @@
 if(CONFIG_ZMK_DISPLAY)
-  target_sources_ifdef(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS app PRIVATE widgets/output_status.c)
+  target_sources_ifdef(CONFIG_CUSTOM_WIDGET_BONGO_CAT app PRIVATE widgets/bongo_cat.c)
 endif()
 
 zephyr_library()
 
 if(CONFIG_ZMK_DISPLAY)
-  if(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
-    zephyr_library_sources(widgets/output_status_img.c)
+  if(CONFIG_CUSTOM_WIDGET_BONGO_CAT)
+    zephyr_library_sources(widgets/bongo_img.c)
   endif()
 endif()
 
