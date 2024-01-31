@@ -2,6 +2,9 @@
     "files.associations": {
         "format": "c",
         "hidapi.h": "c",
-        "*.rh": "c"
+        "*.rh": "c",
+        "bongo_cat.h": "c",
+        "xlocale": "c",
+        "xlocmon": "c"
     }
 }

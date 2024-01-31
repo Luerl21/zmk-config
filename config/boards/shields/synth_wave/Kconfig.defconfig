@@ -65,7 +65,7 @@ config CUSTOM_WIDGET_LABEL_TEXT
 
 endif # CUSTOM_WIDGET_LABEL
 
-config CUSTOM_WIDGET_BONGO_CAT
+config CUSTOM_WIDGET_OUTPUT_STATUS
 	bool "Widget for displaying bongo cat"
 	select LV_USE_LABEL
 	select LV_USE_IMG
