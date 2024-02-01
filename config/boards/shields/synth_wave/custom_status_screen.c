@@ -70,7 +70,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_t *synthlogo_icon;
     synthlogo_icon = lv_img_create(screen);
     lv_img_set_src(synthlogo_icon, &synthlogo);
-    lv_obj_align(synthlogo_icon, LV_ALIGN_BOTTOM_MID, 5, 0);
+    lv_obj_align(synthlogo_icon, LV_ALIGN_BOTTOM_MID, 10, 0);
 #endif
 
     return screen;
