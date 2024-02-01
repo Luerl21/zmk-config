@@ -41,8 +41,8 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_BLUETOOTH
 
 const lv_img_dsc_t bluetooth_disconnected_right = {
     .header.always_zero = 0,
-    .header.w = 35,
-    .header.h = 32,
+    .header.w = 54,
+    .header.h = 35,
     .data_size = 253,
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .data = bluetooth_disconnected_right_map,
