@@ -14,7 +14,7 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-LV_IMG_DECLARE(zenlogo);
+LV_IMG_DECLARE(synthlogo);
 LV_IMG_DECLARE(layers);
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
@@ -63,14 +63,14 @@ lv_obj_t *zmk_display_status_screen() {
     zmk_widget_layer_status_init(&layer_status_widget, screen);
     lv_obj_set_style_text_font(zmk_widget_layer_status_obj(&layer_status_widget),
                                &lv_font_montserrat_12, LV_PART_MAIN);
-    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 10, 0);
+    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 15, 0);
 #endif
 
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
-    lv_obj_t *zenlogo_icon;
-    zenlogo_icon = lv_img_create(screen);
-    lv_img_set_src(zenlogo_icon, &zenlogo);
-    lv_obj_align(zenlogo_icon, LV_ALIGN_BOTTOM_MID, 0, -5);
+    lv_obj_t *synthlogo_icon;
+    synthlogo_icon = lv_img_create(screen);
+    lv_img_set_src(synthlogo_icon, &synthlogo);
+    lv_obj_align(synthlogo_icon, LV_ALIGN_BOTTOM_MID, -5, -5);
 #endif
 
     return screen;

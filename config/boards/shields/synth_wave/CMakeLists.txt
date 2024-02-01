@@ -47,7 +47,7 @@ if(CONFIG_ZMK_DISPLAY)
     zephyr_library_sources(widgets/icons/layers.c)
   endif()
   if(NOT CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
-    zephyr_library_sources(widgets/icons/zenlogo.c)
+    zephyr_library_sources(widgets/icons/synthlogo.c)
   endif()
 endif()
 
