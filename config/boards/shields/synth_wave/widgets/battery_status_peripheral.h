@@ -11,10 +11,10 @@
 
 #include <zephyr/kernel.h>
 
-struct zmk_widget_battery_status_peripheral {
+struct zmk_widget_peripheral_battery_status {
     sys_snode_t node;
     lv_obj_t *obj;
 };
 
-int zmk_widget_battery_status_peripheral_init(struct zmk_widget_battery_status_peripheral *widget, lv_obj_t *parent);
-lv_obj_t *zmk_widget_battery_status_peripheral_obj(struct zmk_widget_battery_status_peripheral *widget);
+int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_battery_status *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_peripheral_battery_status_obj(struct zmk_widget_peripheral_battery_status *widget);

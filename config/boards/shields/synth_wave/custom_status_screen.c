@@ -20,7 +20,7 @@ LV_IMG_DECLARE(layers);
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
 static struct zmk_widget_battery_status battery_status_widget;
 
-static struct zmk_widget_battery_status_peripheral battery_status_peripheral_widget;
+static struct zmk_widget_peripheral_battery_status battery_status_peripheral_widget;
 #endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
@@ -45,7 +45,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(zmk_widget_battery_status_obj(&battery_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
     
     zmk_widget_battery_status_peripheral_init(&battery_status_widget, screen);
-    lv_obj_align(zmk_widget_battery_status_peripheral_obj(&battery_status_peripheral_widget), LV_ALIGN_BOTTOM_LEFT, 0, 25);
+    lv_obj_align(zmk_widget_peripheral_battery_status_obj(&battery_status_peripheral_widget), LV_ALIGN_BOTTOM_LEFT, 0, 25);
 #endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
