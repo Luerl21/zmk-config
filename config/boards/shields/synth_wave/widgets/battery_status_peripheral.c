@@ -12,11 +12,6 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 static sys_slist_t peripheral_widgets = SYS_SLIST_STATIC_INIT(&peripheral_widgets);
 
-struct zmk_widget_peripheral_battery_status {
-    sys_snode_t node;
-    lv_obj_t *obj;
-};
-
 LV_IMG_DECLARE(batt_100);
 LV_IMG_DECLARE(batt_100_chg);
 LV_IMG_DECLARE(batt_75);
