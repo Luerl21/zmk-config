@@ -11,10 +11,6 @@
 #define LV_ATTRIBUTE_MEM_ALIGN
 #endif
 
-#ifndef LV_ATTRIBUTE_LARGE_CONST
-#define LV_ATTRIBUTE_LARGE_CONST
-#endif
-
 #ifndef LV_ATTRIBUTE_IMG_BATT_5
 #define LV_ATTRIBUTE_IMG_BATT_5
 #endif
