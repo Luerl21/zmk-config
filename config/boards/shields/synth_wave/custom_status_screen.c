@@ -66,12 +66,12 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 20, 0);
 #endif
 
-#if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
-    lv_obj_t *synthlogo_icon;
-    synthlogo_icon = lv_img_create(screen);
-    lv_img_set_src(synthlogo_icon, &synthlogo);
-    lv_obj_align(synthlogo_icon, LV_ALIGN_BOTTOM_MID, 10, 0);
-#endif
+// #if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+//     lv_obj_t *synthlogo_icon;
+//     synthlogo_icon = lv_img_create(screen);
+//     lv_img_set_src(synthlogo_icon, &synthlogo);
+//     lv_obj_align(synthlogo_icon, LV_ALIGN_BOTTOM_MID, 10, 0);
+// #endif
 
     return screen;
 }
