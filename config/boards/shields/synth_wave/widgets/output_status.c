@@ -127,5 +127,5 @@ int zmk_widget_output_status_init(struct zmk_widget_output_status *widget, lv_ob
 }
 
 lv_obj_t *zmk_widget_output_status_obj(struct zmk_widget_output_status *widget) {
-    return widget-> ;
+    return widget->obj;
 }
