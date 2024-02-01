@@ -40,7 +40,6 @@ choice ZMK_DISPLAY_STATUS_SCREEN
 	default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
 endchoice
 
-
 menuconfig CUSTOM_WIDGET_BATTERY_STATUS
 	bool "custom battery status widget"
 
