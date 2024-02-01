@@ -20,6 +20,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/ble.h>
 #include <zmk/endpoints.h>
 
+LV_IMG_DECLARE(bluetooth_advertising);
 LV_IMG_DECLARE(bluetooth_connected_right);
 LV_IMG_DECLARE(bluetooth_disconnected_right);
 LV_IMG_DECLARE(bluetooth_connected_1);
