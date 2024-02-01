@@ -6,6 +6,11 @@
 
 #include "synth_wave.dtsi"
 
+&oled {
+    segment-remap;
+    com-invdir;
+};
+
 &default_transform {
     col-offset = <7>;
 };
