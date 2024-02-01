@@ -33,17 +33,17 @@ LV_IMG_DECLARE(batt_0_chg);
 
 static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
     if (level > 95) {
-        lv_img_set_src(icon, state.usb_present ? &batt_100_chg : &batt_100);
+        lv_img_set_src(icon, &batt_100);
     } else if (level > 74) {
-        lv_img_set_src(icon, state.usb_present ? &batt_75_chg : &batt_75);
+        lv_img_set_src(icon, &batt_75);
     } else if (level > 49) {
-        lv_img_set_src(icon, state.usb_present ? &batt_50_chg : &batt_50);
+        lv_img_set_src(icon, &batt_50);
     } else if (level > 24) {
-        lv_img_set_src(icon, state.usb_present ? &batt_25_chg : &batt_25);
+        lv_img_set_src(icon, &batt_25);
     } else if (level > 5) {
-        lv_img_set_src(icon, state.usb_present ? &batt_5_chg : &batt_5);
+        lv_img_set_src(icon, &batt_5);
     } else {
-        lv_img_set_src(icon, state.usb_present ? &batt_0_chg : &batt_0);
+        lv_img_set_src(icon, &batt_0);
     }
 }
 
