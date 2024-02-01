@@ -36,8 +36,8 @@ static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
     }
 }
 
-void handle_peripheral_battery_state_changed(const struct zmk_event_header *eh) {
-    struct zmk_peripheral_battery_state_changed *ev = as_zmk_peripheral_battery_state_changed(eh);
+void handle_peripheral_battery_state_changed(const zmk_event_t *event) {
+    const struct zmk_peripheral_battery_state_changed *ev = as_zmk_peripheral_battery_state_changed(event);
     uint8_t level = ev->state_of_charge;
     struct zmk_widget_peripheral_battery_status *widget;
 
