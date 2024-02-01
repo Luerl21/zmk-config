@@ -63,7 +63,7 @@ lv_obj_t *zmk_display_status_screen() {
     zmk_widget_layer_status_init(&layer_status_widget, screen);
     lv_obj_set_style_text_font(zmk_widget_layer_status_obj(&layer_status_widget),
                                &lv_font_montserrat_12, LV_PART_MAIN);
-    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 15, 0);
+    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 20, 0);
 #endif
 
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
