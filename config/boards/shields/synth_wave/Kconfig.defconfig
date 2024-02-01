@@ -22,7 +22,16 @@ if SHIELD_SYNTH_WAVE_LEFT || SHIELD_SYNTH_WAVE_RIGHT
 		select LVGL_FONT_MONTSERRAT_16
 		select LVGL_USE_LABEL
 		select LV_USE_IMG
-		
+	if ZMK_DISPLAY
+		config I2C
+			default y
+
+		config SSD1306
+			default y
+
+		config SSD1306_REVERSE_MODE
+			default y
+			
 	choice ZMK_DISPLAY_STATUS_SCREEN
 		default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
 	endchoice
