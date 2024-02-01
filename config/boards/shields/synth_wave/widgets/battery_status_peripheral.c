@@ -7,7 +7,6 @@
 #include <zmk/event_manager.h>
 #include <zmk/events/battery_state_changed.h>
 #include <zmk/split/bluetooth/central.h>
-#include <zmk/events/peripheral_battery_state_changed.h> // Добавлено
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
