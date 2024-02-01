@@ -46,7 +46,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(zmk_widget_battery_status_obj(&battery_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
     
     zmk_widget_peripheral_battery_status_init(&battery_status_peripheral_widget, screen);
-    lv_obj_align(zmk_widget_peripheral_battery_status_obj(&battery_status_peripheral_widget), LV_ALIGN_BOTTOM_LEFT, 0, 25);
+    lv_obj_align(zmk_widget_peripheral_battery_status_obj(&battery_status_peripheral_widget), LV_ALIGN_BOTTOM_LEFT, 25, 0);
 #endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
