@@ -10,6 +10,10 @@ if SHIELD_SYNTH_WAVE_LEFT
 		default y
 endif
 
+	config CUSTOM_WIDGET_LOGO
+		bool "Widget for displaying bongo cat"
+		select LV_USE_IMG
+		
 if SHIELD_SYNTH_WAVE_LEFT || SHIELD_SYNTH_WAVE_RIGHT
 
 	config ZMK_SPLIT
@@ -22,10 +26,6 @@ if SHIELD_SYNTH_WAVE_LEFT || SHIELD_SYNTH_WAVE_RIGHT
 		select LVGL_FONT_MONTSERRAT_16
 		select LVGL_USE_LABEL
 		select LVGL_USE_IMG
-
-	config CUSTOM_WIDGET_LOGO
-		bool "Widget for displaying bongo cat"
-		select LV_USE_IMG
 		
 	choice ZMK_DISPLAY_STATUS_SCREEN
 		default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
