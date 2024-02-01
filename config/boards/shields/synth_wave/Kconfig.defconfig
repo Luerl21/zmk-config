@@ -3,11 +3,11 @@
 
 if SHIELD_SYNTH_WAVE_LEFT
 
-config ZMK_KEYBOARD_NAME
-	default "Synth Wave"
+	config ZMK_KEYBOARD_NAME
+		default "Synth Wave"
 
-config ZMK_SPLIT_ROLE_CENTRAL
-	default y
+	config ZMK_SPLIT_ROLE_CENTRAL
+		default y
 endif
 
 if SHIELD_SYNTH_WAVE_LEFT || SHIELD_SYNTH_WAVE_RIGHT
@@ -29,17 +29,17 @@ if SHIELD_SYNTH_WAVE_LEFT || SHIELD_SYNTH_WAVE_RIGHT
 
 	if ZMK_DISPLAY
 
-	config I2C
-		default y
+		config I2C
+			default y
 
-	config SSD1306
-		default y
+		config SSD1306
+			default y
 
-	config SSD1306_REVERSE_MODE
-		default y
+		config SSD1306_REVERSE_MODE
+			default y
 
-	config ZMK_DISPLAY_BLANK_ON_IDLE
-		default n
+		config ZMK_DISPLAY_BLANK_ON_IDLE
+			default n
 
 	endif # ZMK_DISPLAY
 
