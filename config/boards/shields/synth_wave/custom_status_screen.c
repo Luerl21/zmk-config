@@ -66,7 +66,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_TOP_LEFT, 20, 0);
 #endif
 
-#if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+#if IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
     lv_disp_set_rotation(screen, LV_DISP_ROT_180);
 #endif
 
