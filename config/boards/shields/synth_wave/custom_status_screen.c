@@ -4,11 +4,6 @@
  * SPDX-License-Identifier: MIT
  *
  */
-
-#include "widgets/battery_status.h"
-#include "widgets/peripheral_status.h"
-#include "widgets/output_status.h"
-#include "widgets/layer_status.h"
 #include "custom_status_screen.h"
 
 #include <zephyr/logging/log.h>
