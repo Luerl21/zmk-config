@@ -21,8 +21,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/endpoints.h>
 
 LV_IMG_DECLARE(bluetooth_advertising);
-LV_IMG_DECLARE(bluetooth_connected_right);
-LV_IMG_DECLARE(bluetooth_disconnected_right);
+LV_IMG_DECLARE(bluetooth_disconnected);
 LV_IMG_DECLARE(bluetooth_connected_1);
 LV_IMG_DECLARE(bluetooth_connected_2);
 LV_IMG_DECLARE(bluetooth_connected_3);
@@ -78,7 +77,7 @@ static void set_status_symbol(lv_obj_t *icon, struct output_status_state state) 
                     break;
                 }
             } else {
-                lv_img_set_src(icon, &bluetooth_disconnected_right);
+                lv_img_set_src(icon, &bluetooth_disconnected);
             }
         } else {
             switch (state.selected_endpoint.ble.profile_index) {
