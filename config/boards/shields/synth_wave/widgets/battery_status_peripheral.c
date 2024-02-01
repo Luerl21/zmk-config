@@ -2,12 +2,12 @@
 #include <zephyr/bluetooth/services/bas.h>
 #include <zephyr/logging/log.h>
 #include <zmk/display.h>
-#include "battery_status.h"
 #include <zmk/usb.h>
 #include <zmk/events/usb_conn_state_changed.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/battery_state_changed.h>
 #include <zmk/split/bluetooth/central.h>
+#include <zmk/events/peripheral_battery_state_changed.h> // Добавлено
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
@@ -47,14 +47,9 @@ static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
     }
 }
 
-static uint8_t get_peripheral_battery_level() {
-    uint8_t peripheral_level = 0;
-    zmk_split_get_peripheral_battery_level(0, &peripheral_level);
-    return peripheral_level;
-}
-
-void peripheral_battery_status_update_cb() {
-    uint8_t level = get_peripheral_battery_level();
+void handle_peripheral_battery_state_changed(const struct zmk_event_header *eh) {
+    struct zmk_peripheral_battery_state_changed *ev = as_zmk_peripheral_battery_state_changed(eh);
+    uint8_t level = ev->state_of_charge;
     struct zmk_widget_peripheral_battery_status *widget;
 
     SYS_SLIST_FOR_EACH_CONTAINER(&peripheral_widgets, widget, node) {
@@ -62,13 +57,12 @@ void peripheral_battery_status_update_cb() {
     }
 }
 
+ZMK_EVENT_HANDLER(zmk_peripheral_battery_state_changed, handle_peripheral_battery_state_changed);
+
 int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_battery_status *widget, lv_obj_t *parent) {
     widget->obj = lv_img_create(parent);
 
     sys_slist_append(&peripheral_widgets, &widget->node);
-
-    peripheral_battery_status_update_cb();
-
     return 0;
 }
 
