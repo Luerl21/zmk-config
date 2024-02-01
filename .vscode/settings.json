@@ -7,6 +7,8 @@
         "xlocale": "c",
         "xlocmon": "c",
         "ios": "c",
-        "xiosbase": "c"
+        "xiosbase": "c",
+        "battery_status.h": "c",
+        "peripheral_status.h": "c"
     }
 }

@@ -6,6 +6,7 @@
  */
 
 #include "widgets/battery_status.h"
+#include "widgets/battery_status_peripheral.h"
 #include "widgets/peripheral_status.h"
 #include "widgets/output_status.h"
 #include "widgets/layer_status.h"
