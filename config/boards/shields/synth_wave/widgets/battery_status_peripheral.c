@@ -7,23 +7,18 @@
 #include <zmk/event_manager.h>
 #include <zmk/events/battery_state_changed.h>
 #include <zmk/split/bluetooth/central.h>
+#include "battery_status_peripheral.h"
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 static sys_slist_t peripheral_widgets = SYS_SLIST_STATIC_INIT(&peripheral_widgets);
 
 LV_IMG_DECLARE(batt_100);
-LV_IMG_DECLARE(batt_100_chg);
 LV_IMG_DECLARE(batt_75);
-LV_IMG_DECLARE(batt_75_chg);
 LV_IMG_DECLARE(batt_50);
-LV_IMG_DECLARE(batt_50_chg);
 LV_IMG_DECLARE(batt_25);
-LV_IMG_DECLARE(batt_25_chg);
 LV_IMG_DECLARE(batt_5);
-LV_IMG_DECLARE(batt_5_chg);
 LV_IMG_DECLARE(batt_0);
-LV_IMG_DECLARE(batt_0_chg);
 
 static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
     if (level > 95) {

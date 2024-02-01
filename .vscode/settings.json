@@ -9,6 +9,7 @@
         "ios": "c",
         "xiosbase": "c",
         "battery_status.h": "c",
-        "peripheral_status.h": "c"
+        "peripheral_status.h": "c",
+        "battery_status_peripheral.h": "c"
     }
 }
