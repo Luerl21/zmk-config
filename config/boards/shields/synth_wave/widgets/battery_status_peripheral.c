@@ -23,7 +23,7 @@ LV_IMG_DECLARE(batt_0);
 LV_IMG_DECLARE(batt_50_chg);
 
 static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
-    if (level == 99) {
+    if (level == 1) {
         lv_img_set_src(icon, &batt_50_chg);
     } else if (level > 95) {
         lv_img_set_src(icon, &batt_100);
