@@ -12,37 +12,45 @@
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 static sys_slist_t peripheral_widgets = SYS_SLIST_STATIC_INIT(&peripheral_widgets);
+static bool peripheral_usb_connected = false;
 
 LV_IMG_DECLARE(batt_100);
+LV_IMG_DECLARE(batt_100_chg);
 LV_IMG_DECLARE(batt_75);
+LV_IMG_DECLARE(batt_75_chg);
 LV_IMG_DECLARE(batt_50);
+LV_IMG_DECLARE(batt_50_chg);
 LV_IMG_DECLARE(batt_25);
+LV_IMG_DECLARE(batt_25_chg);
 LV_IMG_DECLARE(batt_5);
+LV_IMG_DECLARE(batt_5_chg);
 LV_IMG_DECLARE(batt_0);
+LV_IMG_DECLARE(batt_0_chg);
 
-static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
+static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level, bool peripheral_usb_connected) {
     if (level > 95) {
-        lv_img_set_src(icon, &batt_100);
+        lv_img_set_src(icon, peripheral_usb_connected ? &batt_100_chg : &batt_100);
     } else if (level > 74) {
-        lv_img_set_src(icon, &batt_75);
+        lv_img_set_src(icon, peripheral_usb_connected ? &batt_75_chg : &batt_75);
     } else if (level > 49) {
-        lv_img_set_src(icon, &batt_50);
+        lv_img_set_src(icon, peripheral_usb_connected ? &batt_50_chg : &batt_50);
     } else if (level > 24) {
-        lv_img_set_src(icon, &batt_25);
+        lv_img_set_src(icon, peripheral_usb_connected ? &batt_25_chg : &batt_25);
     } else if (level > 5) {
-        lv_img_set_src(icon, &batt_5);
+        lv_img_set_src(icon, peripheral_usb_connected ? &batt_5_chg : &batt_5);
     } else {
-        lv_img_set_src(icon, &batt_0);
+        lv_img_set_src(icon, peripheral_usb_connected ? &batt_0_chg : &batt_0);
     }
 }
 
 void handle_peripheral_battery_state_changed(const zmk_event_t *event) {
     const struct zmk_peripheral_battery_state_changed *ev = as_zmk_peripheral_battery_state_changed(event);
     uint8_t level = ev->state_of_charge;
+    uint8_t usb_present = zmk_usb_is_powered();
     struct zmk_widget_peripheral_battery_status *widget;
 
     SYS_SLIST_FOR_EACH_CONTAINER(&peripheral_widgets, widget, node) {
-        set_peripheral_battery_symbol(widget->obj, level);
+        set_peripheral_battery_symbol(widget->obj, level, usb_present);
     }
 }
 
