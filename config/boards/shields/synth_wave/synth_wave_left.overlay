@@ -23,3 +23,9 @@
     b-gpios = <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     status = "okay";
 };
+
+&oled {
+    segment-remap;
+    com-invdir;
+    com-sequential;
+};
