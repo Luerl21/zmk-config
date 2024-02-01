@@ -46,7 +46,8 @@ void handle_peripheral_battery_state_changed(const zmk_event_t *event) {
     }
 }
 
-ZMK_SUBSCRIPTION(zmk_peripheral_battery_state_changed, handle_peripheral_battery_state_changed);
+ZMK_LISTENER(peripheral_battery_listener, handle_peripheral_battery_state_changed);
+ZMK_SUBSCRIPTION(peripheral_battery_listener, zmk_peripheral_battery_state_changed);
 
 int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_battery_status *widget, lv_obj_t *parent) {
     widget->obj = lv_img_create(parent);
