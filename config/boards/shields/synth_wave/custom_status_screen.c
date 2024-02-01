@@ -39,7 +39,7 @@ lv_obj_t *zmk_display_status_screen() {
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
     zmk_widget_battery_status_init(&battery_status_widget, screen);
-    lv_obj_align(zmk_widget_battery_status_obj(&battery_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
+    lv_obj_align(zmk_widget_battery_status_obj(&battery_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, -10);
 #endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
@@ -49,11 +49,15 @@ lv_obj_t *zmk_display_status_screen() {
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS)
     zmk_widget_peripheral_status_init(&peripheral_status_widget, screen);
-    lv_obj_align(zmk_widget_peripheral_status_obj(&peripheral_status_widget), LV_ALIGN_TOP_MID, 0,
-                 41);
+    lv_obj_align(zmk_widget_peripheral_status_obj(&peripheral_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
 #endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_LAYER_STATUS)
+
+    lv_obj_t *LayersHeading;
+    LayersHeading = lv_img_create(screen);
+    lv_obj_align(LayersHeading, LV_ALIGN_TOP_LEFT, 0, -10);
+    lv_img_set_src(LayersHeading, &layers2);
 
     zmk_widget_layer_status_init(&layer_status_widget, screen);
     lv_obj_set_style_text_font(zmk_widget_layer_status_obj(&layer_status_widget),
