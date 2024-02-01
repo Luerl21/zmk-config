@@ -51,7 +51,7 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_ZENLOGO u
 const lv_img_dsc_t zenlogo = {
     .header.always_zero = 0,
     .header.w = 80,
-    .header.h = 38,
+    .header.h = 32,
     .data_size = 388,
     .header.cf = LV_IMG_CF_INDEXED_1BIT,
     .data = zenlogo_map,
