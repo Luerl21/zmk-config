@@ -15,6 +15,7 @@
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 LV_IMG_DECLARE(zenlogo);
+LV_IMG_DECLARE(layers);
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
 static struct zmk_widget_battery_status battery_status_widget;
@@ -57,7 +58,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_t *LayersHeading;
     LayersHeading = lv_img_create(screen);
     lv_obj_align(LayersHeading, LV_ALIGN_TOP_LEFT, 0, -10);
-    lv_img_set_src(LayersHeading, &layers2);
+    lv_img_set_src(LayersHeading, &layers);
 
     zmk_widget_layer_status_init(&layer_status_widget, screen);
     lv_obj_set_style_text_font(zmk_widget_layer_status_obj(&layer_status_widget),
