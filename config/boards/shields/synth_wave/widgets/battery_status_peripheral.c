@@ -47,8 +47,8 @@ void handle_peripheral_battery_state_changed(const zmk_event_t *event) {
     const struct zmk_peripheral_battery_state_changed *ev = as_zmk_peripheral_battery_state_changed(event);
     uint8_t level = ev->state_of_charge;
     struct zmk_widget_peripheral_battery_status *widget;
-    const struct zmk_usb_conn_state_changed *ev = as_zmk_usb_conn_state_changed(event);
-    peripheral_usb_connected = ev->connected;
+    const struct zmk_usb_conn_state_changed *evu = as_zmk_usb_conn_state_changed(event);
+    peripheral_usb_connected = evu->connected;
 
     SYS_SLIST_FOR_EACH_CONTAINER(&peripheral_widgets, widget, node) {
         set_peripheral_battery_symbol(widget->obj, level);
