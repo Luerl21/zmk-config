@@ -27,7 +27,7 @@ LV_IMG_DECLARE(batt_5_chg);
 LV_IMG_DECLARE(batt_0);
 LV_IMG_DECLARE(batt_0_chg);
 
-static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level, bool peripheral_usb_connected) {
+static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level) {
     if (level > 95) {
         lv_img_set_src(icon, peripheral_usb_connected ? &batt_100_chg : &batt_100);
     } else if (level > 74) {
@@ -46,11 +46,12 @@ static void set_peripheral_battery_symbol(lv_obj_t *icon, uint8_t level, bool pe
 void handle_peripheral_battery_state_changed(const zmk_event_t *event) {
     const struct zmk_peripheral_battery_state_changed *ev = as_zmk_peripheral_battery_state_changed(event);
     uint8_t level = ev->state_of_charge;
-    bool usb_present = zmk_usb_is_powered();
     struct zmk_widget_peripheral_battery_status *widget;
+    const struct zmk_usb_conn_state_changed *ev = as_zmk_usb_conn_state_changed(event);
+    peripheral_usb_connected = ev->connected;
 
     SYS_SLIST_FOR_EACH_CONTAINER(&peripheral_widgets, widget, node) {
-        set_peripheral_battery_symbol(widget->obj, level, usb_present);
+        set_peripheral_battery_symbol(widget->obj, level);
     }
 }
 
