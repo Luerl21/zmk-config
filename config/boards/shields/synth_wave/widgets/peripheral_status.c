@@ -16,6 +16,8 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/event_manager.h>
 #include <zmk/split/bluetooth/peripheral.h>
 #include <zmk/events/split_peripheral_status_changed.h>
+#include <zmk/events/usb_conn_state_changed.h>
+#include <zmk/events/battery_state_changed.h>
 
 LV_IMG_DECLARE(synthlogo);
 LV_IMG_DECLARE(bluetooth_disconnected_right);
