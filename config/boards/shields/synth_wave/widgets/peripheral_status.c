@@ -44,7 +44,7 @@ struct battery_status_state {
     bool usb_present;
 #endif
 };
-bool aboba;
+bool aboba = true;
 
 static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state) {
     uint8_t level = state.level;
@@ -64,6 +64,7 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
             } else {
                 lv_img_set_src(icon, &batt_0_chg);
             }
+            aboba = false;
     #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
     } else {
         aboba = true;
