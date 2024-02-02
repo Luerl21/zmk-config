@@ -91,7 +91,7 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
 
 void battery_status_update_cb(struct battery_status_state state) {
     struct zmk_widget_peripheral_status *widget;
-    if(state.usb_present == TRUE) {
+    if(state.usb_present) {
         SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_battery_symbol(widget->obj, state); }
     }
 }
