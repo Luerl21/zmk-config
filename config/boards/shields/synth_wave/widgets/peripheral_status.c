@@ -90,7 +90,7 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
 }
 
 void battery_status_update_cb(struct battery_status_state state) {
-    struct zmk_widget_battery_status *widget;
+    struct zmk_widget_battery_status2 *widget;
     SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_battery_symbol(widget->obj, state); }
 }
 
