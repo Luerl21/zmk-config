@@ -46,15 +46,6 @@ struct battery_status_state {
 #endif
 };
 
-static struct battery_status_state battery_status_get_state(const zmk_event_t *eh) {
-    return (struct battery_status_state) {
-        .level = zmk_battery_state_of_charge(),
-#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
-        .usb_present = zmk_usb_is_powered(),
-#endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
-    };
-}
-
 static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state) {
     uint8_t level = state.level;
 
@@ -79,6 +70,15 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
     } else {
         aboba = true;
     }
+}
+
+static struct battery_status_state battery_status_get_state(const zmk_event_t *eh) {
+    return (struct battery_status_state) {
+        .level = zmk_battery_state_of_charge(),
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
+        .usb_present = zmk_usb_is_powered(),
+#endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
+    };
 }
 
         struct peripheral_status_state {
