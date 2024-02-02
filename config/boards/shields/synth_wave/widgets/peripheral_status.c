@@ -72,19 +72,19 @@ struct battery_status_state {
 static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state) {
     uint8_t level = state.level;
 
-#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
+#if (IS_ENABLED(CONFIG_USB_DEVICE_STACK) && state.usb_present)
     if (level > 95) {
-        lv_img_set_src(icon, state.usb_present ? &batt_100_chg : &batt_100);
+        lv_img_set_src(icon, &batt_100_chg);
     } else if (level > 74) {
-        lv_img_set_src(icon, state.usb_present ? &batt_75_chg : &batt_75);
+        lv_img_set_src(icon, &batt_75_chg);
     } else if (level > 49) {
-        lv_img_set_src(icon, state.usb_present ? &batt_50_chg : &batt_50);
+        lv_img_set_src(icon, &batt_50_chg);
     } else if (level > 24) {
-        lv_img_set_src(icon, state.usb_present ? &batt_25_chg : &batt_25);
+        lv_img_set_src(icon, &batt_25_chg);
     } else if (level > 5) {
-        lv_img_set_src(icon, state.usb_present ? &batt_5_chg : &batt_5);
+        lv_img_set_src(icon, &batt_5_chg);
     } else {
-        lv_img_set_src(icon, state.usb_present ? &batt_0_chg : &batt_0);
+        lv_img_set_src(icon, &batt_0_chg);
     }
 #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 }
