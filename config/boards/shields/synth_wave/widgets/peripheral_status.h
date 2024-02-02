@@ -19,10 +19,10 @@ int zmk_widget_peripheral_status_init(struct zmk_widget_peripheral_status *widge
                                       lv_obj_t *parent);
 lv_obj_t *zmk_widget_peripheral_status_obj(struct zmk_widget_peripheral_status *widget);
 
-struct zmk_widget_battery_status {
+struct zmk_widget_battery_status2 {
     sys_snode_t node;
     lv_obj_t *obj;
 };
 
-int zmk_widget_battery_status_init(struct zmk_widget_battery_status *widget, lv_obj_t *parent);
-lv_obj_t *zmk_widget_battery_status_obj(struct zmk_widget_battery_status *widget);
+int zmk_widget_battery_status_init(struct zmk_widget_battery_status2 *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_battery_status_obj(struct zmk_widget_battery_status2 *widget);

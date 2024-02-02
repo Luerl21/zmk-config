@@ -10,6 +10,8 @@
         "xiosbase": "c",
         "battery_status.h": "c",
         "peripheral_status.h": "c",
-        "battery_status_peripheral.h": "c"
+        "battery_status_peripheral.h": "c",
+        "iosfwd": "c",
+        "xlocbuf": "c"
     }
 }
