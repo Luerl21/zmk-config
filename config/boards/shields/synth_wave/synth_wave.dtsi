@@ -45,11 +45,6 @@
         zephyr,console = &cdc_acm_uart;
     };
 
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-        label = "VBATT";
-    };
-
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
