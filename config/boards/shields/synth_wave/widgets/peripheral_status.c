@@ -22,6 +22,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 LV_IMG_DECLARE(synthlogo);
 LV_IMG_DECLARE(bluetooth_disconnected_right);
 
+
 LV_IMG_DECLARE(batt_100);
 LV_IMG_DECLARE(batt_100_chg);
 LV_IMG_DECLARE(batt_75);
@@ -37,7 +38,29 @@ LV_IMG_DECLARE(batt_0_chg);
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
-bool aboba;
+struct peripheral_status_state {
+    bool connected;
+};
+
+static struct peripheral_status_state get_state(const zmk_event_t *_eh) {
+    return (struct peripheral_status_state){.connected = zmk_split_bt_peripheral_is_connected()};
+}
+
+static void set_status_symbol(lv_obj_t *icon, struct peripheral_status_state state) {
+    LOG_DBG("halves connected? %s", state.connected ? "true" : "false");
+
+    lv_img_set_src(icon,
+                   state.connected ? &synthlogo : &bluetooth_disconnected_right);
+}
+
+static void output_status_update_cb(struct peripheral_status_state state) {
+    struct zmk_widget_peripheral_status *widget;
+    SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_status_symbol(widget->obj, state); }
+}
+
+ZMK_DISPLAY_WIDGET_LISTENER(widget_peripheral_status, struct peripheral_status_state,
+                            output_status_update_cb, get_state)
+ZMK_SUBSCRIPTION(widget_peripheral_status, zmk_split_peripheral_status_changed);
 
 struct battery_status_state {
     uint8_t level;
@@ -50,25 +73,28 @@ static void set_battery_symbol(lv_obj_t *icon, struct battery_status_state state
     uint8_t level = state.level;
 
     if(state.usb_present) {
-        #if (IS_ENABLED(CONFIG_USB_DEVICE_STACK))
-                if (level > 95) {
-                    lv_img_set_src(icon, &batt_100_chg);
-                } else if (level > 74) {
-                    lv_img_set_src(icon, &batt_75_chg);
-                } else if (level > 49) {
-                    lv_img_set_src(icon, &batt_50_chg);
-                } else if (level > 24) {
-                    lv_img_set_src(icon, &batt_25_chg);
-                } else if (level > 5) {
-                    lv_img_set_src(icon, &batt_5_chg);
-                } else {
-                    lv_img_set_src(icon, &batt_0_chg);
-                }
-        #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
-        
-        aboba = false;
-    } else {
-        aboba = true;
+    #if (IS_ENABLED(CONFIG_USB_DEVICE_STACK))
+            if (level > 95) {
+                lv_img_set_src(icon, &batt_100_chg);
+            } else if (level > 74) {
+                lv_img_set_src(icon, &batt_75_chg);
+            } else if (level > 49) {
+                lv_img_set_src(icon, &batt_50_chg);
+            } else if (level > 24) {
+                lv_img_set_src(icon, &batt_25_chg);
+            } else if (level > 5) {
+                lv_img_set_src(icon, &batt_5_chg);
+            } else {
+                lv_img_set_src(icon, &batt_0_chg);
+            }
+    #endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
+    }
+}
+
+void battery_status_update_cb(struct battery_status_state state) {
+    struct zmk_widget_peripheral_status *widget;
+    if(state.usb_present) {
+        SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_battery_symbol(widget->obj, state); }
     }
 }
 
@@ -81,25 +107,13 @@ static struct battery_status_state battery_status_get_state(const zmk_event_t *e
     };
 }
 
-        struct peripheral_status_state {
-            bool connected;
-        };
+ZMK_DISPLAY_WIDGET_LISTENER(widget_battery_status, struct battery_status_state,
+                            battery_status_update_cb, battery_status_get_state)
 
-        static void set_status_symbol(lv_obj_t *icon, struct peripheral_status_state state) {
-            LOG_DBG("halves connected? %s", state.connected ? "true" : "false");
-            if(aboba){
-                lv_img_set_src(icon,
-                    state.connected ? &synthlogo : &bluetooth_disconnected_right);
-            }
-        }
-        static void output_status_update_cb(struct peripheral_status_state state) {
-            struct zmk_widget_peripheral_status *widget;
-            SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_status_symbol(widget->obj, state); }
-        }
-
-        ZMK_DISPLAY_WIDGET_LISTENER(widget_peripheral_status, struct peripheral_status_state,
-                                    output_status_update_cb, get_state)
-        ZMK_SUBSCRIPTION(widget_peripheral_status, zmk_split_peripheral_status_changed);
+ZMK_SUBSCRIPTION(widget_battery_status, zmk_battery_state_changed);
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
+ZMK_SUBSCRIPTION(widget_battery_status, zmk_usb_conn_state_changed);
+#endif /* IS_ENABLED(CONFIG_USB_DEVICE_STACK) */
 
 int zmk_widget_peripheral_status_init(struct zmk_widget_peripheral_status *widget,
                                       lv_obj_t *parent) {
