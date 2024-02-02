@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: luerl21
-      revision: usb-change
+      revision: main
       import: app/west.yml
   self:
     path: config
