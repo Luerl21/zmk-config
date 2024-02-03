@@ -1,11 +1,15 @@
 manifest:
   remotes:
-    - name: luerl21
-      url-base: https://github.com/luerl21
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: Luerl21
+      url-base: https://github.com/Luerl21
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
-      remote: luerl21
-      revision: main
+      remote: petejohanson
+      revision: studio/raw-hid-exploration
       import: app/west.yml
   self:
     path: config
