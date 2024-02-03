@@ -17,9 +17,9 @@
 
 / {
     keys {
-		compatible = "gpio-keys";
+		compatible = "gpio-keys";ЦЫЫ
 		wakeup_key: wakeup_key {
-			gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+			gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 		};
 	};
     
