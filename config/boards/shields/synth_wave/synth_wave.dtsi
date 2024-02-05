@@ -22,6 +22,7 @@
 			gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 		};
         wakeup_pin: wakeup_pin {
+            #gpio-cells = <1>;
 			gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 		};
 	};
