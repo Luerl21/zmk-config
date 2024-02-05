@@ -19,8 +19,10 @@
     keys {
 		compatible = "gpio-keys";
 		wakeup_key: wakeup_key {
-			gpios = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-            <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+			gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+		};
+        wakeup_pin: wakeup_pin {
+			gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 		};
 	};
     
@@ -55,6 +57,7 @@
 		compatible = "zmk,gpio-key-wakeup-trigger";
 		
 		trigger = <&wakeup_key>;
+        extra-gpios: <&wakeup_pin>;
 		wakeup-source;
 	};
 
