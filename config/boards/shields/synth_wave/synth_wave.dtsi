@@ -21,10 +21,6 @@
 		wakeup_key: wakeup_key {
 			gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 		};
-        wakeup_pin: wakeup_pin {
-            #gpio-cells = <1>;
-			gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
-		};
 	};
     
     behaviors {
@@ -58,7 +54,7 @@
 		compatible = "zmk,gpio-key-wakeup-trigger";
 		
 		trigger = <&wakeup_key>;
-        extra-gpios = <&wakeup_pin>;
+        extra-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 		wakeup-source;
 	};
 
