@@ -54,7 +54,7 @@
 		compatible = "zmk,gpio-key-wakeup-trigger";
 		
 		trigger = <&wakeup_key>;
-        extra-gpios = <&pro_micro 4 GPIO_ACTIVE_LOW>;
+        extra-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 		wakeup-source;
 	};
 
@@ -67,7 +67,7 @@
 		wakeup-source;
 		kscan = <&soft_off_direct_scan>;
 		soft_off {
-			column = <3>;
+			column = <0>;
 			row = <0>;
 			bindings = <&hw_soft_off>;
 		};
