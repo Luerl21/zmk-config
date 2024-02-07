@@ -2,10 +2,12 @@ manifest:
   remotes:
     - name: luerl21
       url-base: https://github.com/luerl21
+    - name: steno
+      url-base: https://github.com/dnaq/
   projects:
     - name: zmk
-      remote: luerl21
-      revision: main
+      remote: steno
+      revision: plover-hid-hog-attempt
       import: app/west.yml
   self:
     path: config
