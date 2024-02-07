@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/dnaq/
   projects:
     - name: zmk
-      remote: steno
-      revision: plover-hid-hog-attempt
+      remote: luerl21
+      revision: main
       import: app/west.yml
   self:
     path: config
