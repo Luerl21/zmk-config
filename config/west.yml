@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: luerl21
-      url-base: https://github.com/luerl21
+    - name: xqinx
+      url-base: https://github.com/xqinx
   projects:
     - name: zmk
       remote: luerl21
-      revision: main
+      revision: thb
       import: app/west.yml
   self:
     path: config
