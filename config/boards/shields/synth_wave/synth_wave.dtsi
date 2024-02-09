@@ -33,6 +33,14 @@
             #sensor-binding-cells = <0>;
             bindings = <&bt BT_NXT>, <&bt BT_PRV>;
         };
+        joystick0: thb {
+            compatible = "ck,thb";
+            label = "JOYSTICK";
+            io-channels = <&adc 3>, <&adc 2>;
+            io-channel-names = "X-AXIS", "Y-AXIS";
+            max-mv = <1650>;
+            status = "disabled";
+        };
     };
     
     chosen {
