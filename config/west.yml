@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: urob
-      url-base: https://github.com/urob
+    - name: mouse
+      url-base: https://github.com/luerl21
   projects:
     - name: zmk
-      remote: urob
-      revision: main-with-native-mouse
+      remote: luerl21
+      revision: mouse
       import: app/west.yml
   self:
     path: config
