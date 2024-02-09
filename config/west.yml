@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: luerl21
-      revision: mouse-steno
+      revision: test
       import: app/west.yml
   self:
     path: config
