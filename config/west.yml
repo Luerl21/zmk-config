@@ -1,6 +1,6 @@
 manifest:
   remotes:
-    - name: mouse
+    - name: luerl21
       url-base: https://github.com/luerl21
   projects:
     - name: zmk

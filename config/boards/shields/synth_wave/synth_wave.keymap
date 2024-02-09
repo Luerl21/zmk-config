@@ -57,15 +57,15 @@
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
-        steno_layer {
-            label = "STENO";
-            bindings = <
-                &none      &none      &none      &none      &none      &none                      &none     &none      &none      &none      &none      &none
-                &none &kp PLV_SL &kp PLV_TL &kp PLV_PL &kp PLV_HL &kp PLV_ST                    &kp PLV_ST &kp PLV_FR &kp PLV_PR &kp PLV_LR &kp PLV_TR &kp PLV_DR
-                &none &kp PLV_SL &kp PLV_KL &kp PLV_WL &kp PLV_RL &kp PLV_ST                      &kp PLV_ST &kp PLV_RR &kp PLV_BR &kp PLV_GR &kp PLV_SR &kp PLV_ZR 
-                                    &none  &kp PLV_A &kp PLV_O &kp PLV_NM                           &tog 4 &kp PLV_NM &kp PLV_E &kp PLV_U
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
+        // steno_layer {
+        //     label = "STENO";
+        //     bindings = <
+        //         &none      &none      &none      &none      &none      &none                      &none     &none      &none      &none      &none      &none
+        //         &none &kp PLV_SL &kp PLV_TL &kp PLV_PL &kp PLV_HL &kp PLV_ST                    &kp PLV_ST &kp PLV_FR &kp PLV_PR &kp PLV_LR &kp PLV_TR &kp PLV_DR
+        //         &none &kp PLV_SL &kp PLV_KL &kp PLV_WL &kp PLV_RL &kp PLV_ST                      &kp PLV_ST &kp PLV_RR &kp PLV_BR &kp PLV_GR &kp PLV_SR &kp PLV_ZR 
+        //                             &none  &kp PLV_A &kp PLV_O &kp PLV_NM                           &tog 4 &kp PLV_NM &kp PLV_E &kp PLV_U
+        //     >;
+        //     sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        // };
     };
 };
