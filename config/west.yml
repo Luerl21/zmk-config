@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: luerl21
-      url-base: https://github.com/luerl21
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
-      remote: luerl21
-      revision: test
+      remote: petejohanson
+      revision: pointers-move-scroll
       import: app/west.yml
   self:
     path: config
