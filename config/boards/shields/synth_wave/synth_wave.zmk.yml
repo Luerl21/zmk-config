@@ -1,0 +1,16 @@
+file_format: "1"
+id: Synth Wave
+name: Synth Wave
+type: shield
+url: https://github.com/luerl21/synth_wave
+requires:
+  - nice_nano_v2
+exposes: 
+  - i2c_oled
+features:
+  - display
+  - keys
+  - encoder
+siblings:
+    - synth_wave_left
+    - synth_wave_right
