@@ -6,6 +6,7 @@
  */
 
 #include "widgets/battery_status.h"
+#include "widgets/battery_status_peripheral.h"
 #include "widgets/peripheral_status.h"
 #include "widgets/output_status.h"
 #include "widgets/layer_status.h"
@@ -17,6 +18,11 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 LV_IMG_DECLARE(synthlogo);
 LV_IMG_DECLARE(layers);
 
+#if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
+static struct zmk_widget_battery_status battery_status_widget;
+
+static struct zmk_widget_peripheral_battery_status battery_status_peripheral_widget;
+#endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
 static struct zmk_widget_output_status output_status_widget;
@@ -35,6 +41,13 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_t *screen;
     screen = lv_obj_create(NULL);
 
+#if IS_ENABLED(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
+    zmk_widget_battery_status_init(&battery_status_widget, screen);
+    lv_obj_align(zmk_widget_battery_status_obj(&battery_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
+    
+    zmk_widget_peripheral_battery_status_init(&battery_status_peripheral_widget, screen);
+    lv_obj_align(zmk_widget_peripheral_battery_status_obj(&battery_status_peripheral_widget), LV_ALIGN_BOTTOM_LEFT, 25, 0);
+#endif
 
 #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_OUTPUT_STATUS)
     zmk_widget_output_status_init(&output_status_widget, screen);
