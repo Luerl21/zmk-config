@@ -21,7 +21,7 @@
                 &kp TAB &kp Q &kp W &kp E &kp R &kp T                       &kp Y   &kp U     &kp I   &kp O   &kp P   &kp BSPC
                 &kp LSHIFT &kp A &kp S &kp D &kp F &kp G                    &kp H   &kp J     &kp K   &kp L   &kp SEMICOLON    &kp SINGLE_QUOTE
                 &kp LCTRL &kp Z &kp X &kp C &kp V &kp B                     &kp N   &kp M   &kp COMMA &kp DOT &kp SLASH &kp ESC
-                            &kp C_MUTE &kp LGUI &kp TAB &kp SPACE        &trans &kp ENTER &mo 1 &kp RALT
+                            &studio_unlock &kp LGUI &kp TAB &kp SPACE        &trans &kp ENTER &mo 1 &kp RALT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
