@@ -1,3 +1,4 @@
+name: "synth_wave"
 build:
   settings:
     board_root: .
