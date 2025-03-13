@@ -1,10 +1,21 @@
+# manifest:
+#   remotes:
+#     - name: zmkfirmware
+#       url-base: https://github.com/zmkfirmware
+#   projects:
+#     - name: zmk
+#       remote: zmkfirmware
+#       revision: main
+#       import: app/west.yml
+#   self:
+#     path: config
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: luerl21
+      url-base: https://github.com/luerl21
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: luerl21
       revision: main
       import: app/west.yml
   self:
